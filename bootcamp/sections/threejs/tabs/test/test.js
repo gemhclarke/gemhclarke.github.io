@@ -2,7 +2,8 @@ import * as THREE from "three";
 import { OrbitControls } from "jsm/controls/OrbitControls.js";
 
 const w = window.innerWidth;
-const h = window.innerHeight;
+//const h = window.innerHeight;
+const h = 500;
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(w, h);
 document.body.appendChild(renderer.domElement);
