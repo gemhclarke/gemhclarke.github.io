@@ -3,25 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A basic boilerplate HTML homepage">
-    <meta name="author" content="Gem Clarke">
-    <title>Homepage</title>
-    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agu+Display&family=Joti+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Gem Clarke</h1>
-    </header>
-    <div class="topbar">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="bootcamp/bootcamp.html">Bootcamp</a>
+    
+    <div>
+
+        <h1>
+            <span id="rockT">Rock</span>
+            <span id="paperT">Paper</span>
+            <span id="scissorsT">Scissors</span>
+        </h1>
+
+        <p>Player Score: <span id="playerScore">0</span></p>
+        <p>Computer Score: <span id="computerScore">0</span></p>
+
+        
+        <div class="Choice">Player: <span id="pChoice">blank</span></div>
+        <div class="Choice">Computer: <span id="cChoice">blank</span></div>
+
+        <div id="result">no result</div>
+
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+        <button id="reset">reset</button>
+
     </div>
-    <main>
-        <h1>Site under construction</h1>
-    </main>
-    <footer>
-        <p>&copy; 2024 Gem Clarke. All Rights Reserved.</p>
-    </footer>
+
+    <div class="Counter">Time on the site: <span id="counter">0</span><span id="seconds">s</span></div>
+    
+    <!--? body ends here -->
+
+
+
+    <style>
+            body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: "Joti One", serif;
+            text-align: center;
+            background-image: url('Background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        div {
+            background: #161618;
+            padding: 20px;
+            border-radius: 10px; /*rounded corners*/
+            border: 0.1px solid white
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            /* color: #ff00bb; */
+        }
+
+        #rockT {
+            color: #00b7ff;
+        }
+        #paperT {
+            color: #FF7B00;
+        }
+        #scissorsT {
+            color: #ff00ae;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: rgba(255, 255, 255, 0.903);
+        }
+
+        #result {
+            font-size: 1.5rem;
+            margin: 20px;
+            padding: 10px;
+            background: rgba(241, 241, 255, 0.2);
+            border-radius: 5px;
+            color: rgba(0, 0, 0, 0.903);
+            margin-top: 30px;
+            border: 0px;
+        }
+
+        .Choice {
+            font-size: 1.3rem;
+            width: 200px;
+            height: 30px;
+            margin: 0px auto;
+            padding: 10px;
+            background: rgba(241, 241, 255, 0.2);
+            border-radius: 0px;
+            color: rgba(0, 0, 0, 0.903);
+            margin-top: 30px;
+            border: 0px;
+            text-align: left;
+        }
+
+        #seconds {
+            font-size: 0.8rem;
+        }
+
+        button {
+            font-size: 1rem;
+            font-family: "Joti One", serif;
+            padding: 10px 20px;
+            margin: 10px;
+            color: rgba(255, 255, 255, 0.903);
+            background: rgba(241, 241, 255, 0.2);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            /* transition: 0.3s ease; */
+        }
+
+        button:hover {
+            background: #ff00bb;
+            color: black;
+        }
+
+        button:active {
+            background: #ffffff;
+        }
+
+
+        .Counter {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+            font-size: 20px;
+            border: 0px;
+}
+    </style>
+
+
+
+
+    <script>
+
+        const rock = document.getElementById("rock");
+        const paper = document.getElementById("paper");
+        const scissors = document.getElementById("scissors");
+        let result = document.getElementById("result");
+
+        p_choice_display = document.getElementById("pChoice");
+        c_choice_display = document.getElementById("cChoice");
+
+        let playerChoice;
+        let computerChoice;
+        const choices = ["rock", "paper", "scissors"];
+
+        let playerScore = document.getElementById("playerScore");
+        let computerScore = document.getElementById("computerScore");
+        playerScore.textContent = 0;
+        computerScore.textContent = 0;
+
+        resetBtn = document.getElementById("reset")
+        resetBtn.addEventListener("click", function() {
+            playerScore.textContent = 0;
+            computerScore.textContent = 0;
+            result.textContent = "no result";
+            result.style.color = "black"
+            c_choice_display.textContent = "blank"
+            p_choice_display.textContent = "blank"
+
+        })
+
+
+        function computerPlay() {
+            const randomNumber = Math.floor(Math.random() * 3);
+            computerChoice = choices[randomNumber];
+            console.log(computerChoice);
+            c_choice_display.textContent = computerChoice
+        }
+
+
+
+        function playerChoiceColor() {
+            if (playerChoice == "rock") {
+                p_choice_display.style.color = "#00b7ff"
+            }
+            else if (playerChoice == "paper") {
+                p_choice_display.style.color = "#FF7B00"
+            }
+            else if (playerChoice == "scissors") {
+                p_choice_display.style.color = "#ff00ae"
+            }
+}
+        function computerChoiceColor() {
+            if (computerChoice == "rock") {
+                c_choice_display.style.color = "#00b7ff"
+            }
+            else if (computerChoice == "paper") {
+                c_choice_display.style.color = "#FF7B00"
+            }
+            else if (computerChoice == "scissors") {
+                c_choice_display.style.color = "#ff00ae"
+            }
+        }
+
+
+
+        function choicesColor() {
+            playerChoiceColor();
+            computerChoiceColor();
+        }
+
+
+
+        function compare(c, p) {
+
+            if (p == "rock"  && c == "paper") {
+                result.textContent = "You lose!";
+                result.style.color = "#ff00ae"
+                computerScore.innerHTML++;
+            }
+            else if (p == "paper"  && c == "scissors") {
+                result.textContent = "You lose!";
+                result.style.color = "#ff00ae"
+                computerScore.innerHTML++;
+            }
+            else if (p == "scissors"  && c == "rock") {
+                result.textContent = "You lose!";
+                result.style.color = "#ff00ae"
+                computerScore.innerHTML++;
+            }
+
+            else if (p == "paper"  && c == "rock") {
+                result.textContent = "You win!";
+                result.style.color = "#00b7ff"
+                playerScore.innerHTML++;
+            }
+            else if (p == "rock"  && c == "scissors") {
+                result.textContent = "You win!";
+                result.style.color = "#00b7ff"
+                playerScore.innerHTML++;
+            }
+            else if (p == "scissors"  && c == "paper") {
+                result.textContent = "You win!";
+                result.style.color = "#00b7ff"
+                playerScore.innerHTML++;
+            }
+            else {
+                result.textContent = "Draw!";
+                result.style.color = "#FF7B00"
+            }
+        }
+
+
+
+        rock.addEventListener("click", function() {
+            playerChoice = "rock";
+            computerPlay();
+            compare(computerChoice, playerChoice);
+            p_choice_display.textContent = playerChoice;
+            choicesColor();
+            
+        });
+        paper.addEventListener("click", function() {
+            playerChoice = "paper";
+            computerPlay();
+            compare(computerChoice, playerChoice);
+            p_choice_display.textContent = playerChoice;
+            choicesColor();
+        });
+        scissors.addEventListener("click", function() {
+            playerChoice = "scissors";
+            computerPlay();
+            compare(computerChoice, playerChoice);
+            p_choice_display.textContent = playerChoice;
+            choicesColor();
+        });
+
+
+        async function countTimeOnSite() {
+        let startTime = -1; 
+
+            while (true) {
+                startTime++;
+                document.getElementById("counter").innerText = startTime;
+                // Disclaimer: I do not entirely understand promises. this is an example I found on the web.
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            };
+        }
+
+        countTimeOnSite();
+
+
+    </script>
 </body>
 </html>
