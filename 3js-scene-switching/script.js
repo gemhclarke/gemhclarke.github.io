@@ -6,7 +6,7 @@
 
         // ----- Create scene01 -----
         const scene01 = new THREE.Scene();        
-        scene01.background = new THREE.Color(0x000000);
+        scene01.background = new THREE.Color(0x202020);
 
         // ----- Create a box with a material -----
         const boxGeometry = new THREE.BoxGeometry();
@@ -18,15 +18,15 @@
 
         // ----- Create scene02 -----
         const scene02 = new THREE.Scene();        
-        scene02.background = new THREE.Color(0xFFFFFF);
+        scene02.background = new THREE.Color(0x8f8f8f);
 
         // ----- Create a sphere with a material -----
-        const sphereGeometry = new THREE.SphereGeometry(0.5, 32, 32);
-        const spherematerial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-        const sphere = new THREE.Mesh(sphereGeometry, spherematerial);
+        const coneGeometry = new THREE.ConeGeometry();
+        const coneMaterial = new THREE.MeshBasicMaterial({ color: 0x83f2e4 });
+        const cone = new THREE.Mesh(coneGeometry, coneMaterial);
         
         // ----- Add the cube to scene02 -----
-        scene02.add(sphere);
+        scene02.add(cone);
 
         // ----- Create camera for scenen01 -----
         const scene01cam = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
@@ -45,7 +45,7 @@
         currentScene = scene01;
         currentCamera = scene01cam;
 
-        // ----- Handle Scene Switching -----
+        // ----- Add Event listeners for scene switching -----
         window.addEventListener("keydown", function (event) {
             if (event.key === "1") {
                 currentScene = scene01;
