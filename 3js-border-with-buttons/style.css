@@ -1,0 +1,171 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+#canvas-container {
+    position: relative;
+}
+canvas {
+    display: block;
+}
+.controls {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+
+@font-face {
+    font-family: 'sourcesanspro';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url(https://design.penpot.app/fonts/sourcesanspro-regular.woff) format('woff');
+  }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  min-width: 100%;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.text-node { background-clip: text !important; -webkit-background-clip: text !important; }
+
+/* Board */
+.board-78b8be33084f {
+  position: relative;
+  width: 100%;
+  background: #009300;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  align-content: stretch;
+  justify-content: start;
+  padding: 1px 5px 1px 5px;
+  z-index: 0;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-grow: 1;
+}
+
+/* Rotate Right */
+.rotate-rig-78b8be330850 {
+  width: 57px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.rotate-rig-78b8be330850 .root-0 {
+  
+  
+  display: flex;
+  white-space: break-spaces;
+  align-items: flex-start;
+}
+.rotate-rig-78b8be330850 .root-0-paragraph-set-0 {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: inherit;
+  
+  margin-right: 1px;
+  vertical-align: top;
+}
+.rotate-rig-78b8be330850 .root-0-paragraph-set-0-paragraph-0 {
+  font-size: 0;
+  line-height: 1.2;
+  margin: 0;
+  text-align: left;
+}
+.rotate-rig-78b8be330850 .root-0-paragraph-set-0-paragraph-0-text-0 {
+  color: rgba(236, 242, 236, 1);
+  text-transform: none;
+  
+  line-break: auto;
+  overflow-wrap: initial;
+  white-space: pre;
+  font-size: 11px;
+  text-rendering: geometricPrecision;
+  caret-color: rgba(236, 242, 236, 1);
+  text-decoration: none;
+  letter-spacing: 0px;
+  font-family: "sourcesanspro";
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Board */
+.board-78b6b423c18a {
+  position: relative;
+  width: 100%;
+  background: #009300;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  align-content: stretch;
+  justify-content: start;
+  padding: 1px 5px 1px 5px;
+  z-index: 0;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-grow: 1;
+}
+
+/* Rotate Left */
+.rotate-lef-78b6b423c18b {
+  width: 51px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.rotate-lef-78b6b423c18b .root-0 {
+  
+  
+  display: flex;
+  white-space: break-spaces;
+  align-items: flex-start;
+}
+.rotate-lef-78b6b423c18b .root-0-paragraph-set-0 {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: inherit;
+  
+  margin-right: 1px;
+  vertical-align: top;
+}
+.rotate-lef-78b6b423c18b .root-0-paragraph-set-0-paragraph-0 {
+  font-size: 0;
+  line-height: 1.2;
+  margin: 0;
+  text-align: left;
+}
+.rotate-lef-78b6b423c18b .root-0-paragraph-set-0-paragraph-0-text-0 {
+  color: rgba(236, 242, 236, 1);
+  text-transform: none;
+  
+  line-break: auto;
+  overflow-wrap: initial;
+  white-space: pre;
+  font-size: 11px;
+  text-rendering: geometricPrecision;
+  caret-color: rgba(236, 242, 236, 1);
+  text-decoration: none;
+  letter-spacing: 0px;
+  font-family: "sourcesanspro";
+  font-style: normal;
+  font-weight: 400;
+}
