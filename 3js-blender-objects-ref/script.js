@@ -27,13 +27,7 @@ loader.load(
     sphere = gltf.scene.getObjectByName('Sphere');
     cube = gltf.scene.getObjectByName('Cube');
     cone = gltf.scene.getObjectByName('Cone');
-
-    // Traverse the scene and log object names
-    gltf.scene.traverse( function(child) {
-        if (child.isMesh) {
-          console.log('Object name:', child.name);
-        }
-      });
+    
   },
   undefined,
   (error) => {
