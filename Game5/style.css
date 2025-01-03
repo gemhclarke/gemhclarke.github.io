@@ -1,0 +1,24 @@
+/* Set the body to be a flex container */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #f0f0f0; /* Optional: Background color */
+}
+
+/* Slideshow container to center the image */
+.slideshow-container {
+    width: 80%; /* You can adjust the width of the container */
+    max-width: 800px; /* Maximum width to prevent large images */
+    text-align: center;
+}
+
+#slideshowImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Keeps the aspect ratio intact */
+    image-rendering: crisp-edges; /* Prevents blur */
+}
