@@ -104,6 +104,6 @@ function displayImage() {
 }
 
 // Initial setup when the page loads
-window.onload = function() {
-    startSlideshow(); // Start the slideshow automatically upon loading
-};
+// window.onload = function() {
+//     startSlideshow(); // Start the slideshow automatically upon loading
+// };
