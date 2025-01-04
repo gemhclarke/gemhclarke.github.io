@@ -72,6 +72,16 @@ const imageFiles = [
     // Add more image filenames here
 ];
 
+const preloadImages = function(urls) {
+    urls.forEach((url) => {
+        const img = new Image();
+        img.src = url;
+    });
+};
+
+// Call preloadImages with the list of image URLs
+preloadImages(imageFiles);
+
 let currentIndex = 0;
 const delay = 150; // Fixed delay in milliseconds
 
