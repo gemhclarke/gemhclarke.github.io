@@ -75,7 +75,7 @@ const imageFiles = [
 const preloadImages = function(urls) {
     urls.forEach((url) => {
         const img = new Image();
-        img.src = url;
+        img.src = "imageFiles/" + url;
     });
 };
 
