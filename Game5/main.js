@@ -66,6 +66,9 @@ const imageFiles = [
     '0064.png',
     '0065.png',
     '0066.png',
+    '0067.png',
+    '0068.png',
+
     // Add more image filenames here
 ];
 

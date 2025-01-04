@@ -6,13 +6,13 @@ body {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    background-color: #f0f0f0; /* Optional: Background color */
+    background-color: #000000; /* Optional: Background color */
 }
 
 /* Slideshow container to center the image */
 .slideshow-container {
-    width: 80%; /* You can adjust the width of the container */
-    max-width: 800px; /* Maximum width to prevent large images */
+    width: 70%; /* You can adjust the width of the container */
+   /* max-width: 800px;  /* Maximum width to prevent large images */
     text-align: center;
 }
 
