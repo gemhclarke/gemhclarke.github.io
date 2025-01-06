@@ -1,5 +1,5 @@
 // Array of image filenames
-const imageFiles = [
+const images = [
     '0001.png',
     '0002.png',
     '0003.png',
@@ -72,15 +72,15 @@ const imageFiles = [
     // Add more image filenames here
 ];
 
-const preloadImages = function(urls) {
-    urls.forEach((url) => {
+const preloadImages = function(path, images) {
+    images.forEach((image) => {
         const img = new Image();
-        img.src = "imageFiles/" + url;
+        img.src = path + image;
     });
 };
 
 // Call preloadImages with the list of image URLs
-preloadImages(imageFiles);
+preloadImages(path, images);
 
 let currentIndex = 0;
 const delay = 150; // Fixed delay in milliseconds
