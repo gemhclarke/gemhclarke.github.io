@@ -80,7 +80,7 @@ const preloadImages = function(path, images) {
 };
 
 // Call preloadImages with the list of image URLs
-preloadImages(path, images);
+preloadImages('imageFiles/', images);
 
 let currentIndex = 0;
 const delay = 150; // Fixed delay in milliseconds
@@ -92,14 +92,14 @@ function startSlideshow() {
 
     // Set interval to show images at the specified delay (120 ms)
     setInterval(function() {
-        currentIndex = (currentIndex + 1) % imageFiles.length; // Loop through images
+        currentIndex = (currentIndex + 1) % images.length; // Loop through images
         displayImage();
     }, delay);
 }
 
 // Function to display an image
 function displayImage() {
-    const imagePath = `imageFiles/${imageFiles[currentIndex]}`;
+    const imagePath = `imageFiles/${images[currentIndex]}`;
     document.getElementById('slideshowImage').src = imagePath;
 }
 
