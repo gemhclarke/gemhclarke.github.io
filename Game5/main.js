@@ -1,5 +1,4 @@
-// Array of image filenames
-const images = [
+const machinesWalking = [
     '0001.png',
     '0002.png',
     '0003.png',
@@ -68,9 +67,13 @@ const images = [
     '0066.png',
     '0067.png',
     '0068.png',
-
-    // Add more image filenames here
 ];
+
+const misk = [
+    'Frame.png',
+    'Background.png',
+];
+
 
 const preloadImages = function(path, images) {
     images.forEach((image) => {
@@ -79,8 +82,8 @@ const preloadImages = function(path, images) {
     });
 };
 
-// Call preloadImages with the list of image URLs
-preloadImages('imageFiles/', images);
+preloadImages('imageFiles/', machinesWalking);
+preloadImages('miskImages/', misk);
 
 let currentIndex = 0;
 const delay = 150; // Fixed delay in milliseconds
@@ -92,14 +95,14 @@ function startSlideshow() {
 
     // Set interval to show images at the specified delay (120 ms)
     setInterval(function() {
-        currentIndex = (currentIndex + 1) % images.length; // Loop through images
+        currentIndex = (currentIndex + 1) % machinesWalking.length; // Loop through images
         displayImage();
     }, delay);
 }
 
 // Function to display an image
 function displayImage() {
-    const imagePath = `imageFiles/${images[currentIndex]}`;
+    const imagePath = `imageFiles/${machinesWalking[currentIndex]}`;
     document.getElementById('slideshowImage').src = imagePath;
 }
 
