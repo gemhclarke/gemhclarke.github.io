@@ -8,7 +8,7 @@ body {
     align-items: center; /* Center vertically */
     background: url('miskImages/Background.png') repeat; /* Combined shorthand for background properties */
     background-size: 70px 70px; /* Set the size of repeated tiles */
-    image-rendering: crisp-edges; /* Ensures sharp edges for pixel art or small images */
+    image-rendering: pixelated; /* Ensures sharp edges for pixel art or small images */
 }
 
 /* Slideshow container */
