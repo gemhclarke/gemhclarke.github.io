@@ -1,4 +1,4 @@
-/* Set the body to be a flex container */
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,19 +6,33 @@ body {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    background-color: #000000; /* Optional: Background color */
+    background: url('miskImages/Background.png') repeat; /* Combined shorthand for background properties */
+    background-size: 70px 70px; /* Set the size of repeated tiles */
+    image-rendering: crisp-edges; /* Ensures sharp edges for pixel art or small images */
 }
 
-/* Slideshow container to center the image */
+/* Slideshow container */
 .slideshow-container {
-    width: 70%; /* You can adjust the width of the container */
-   /* max-width: 800px;  /* Maximum width to prevent large images */
+    position: relative; /* Establishes positioning context for child elements */
+    width: 70%; /* Flexible width for responsiveness */
     text-align: center;
+    margin: 0 auto; /* Ensures container is horizontally centered */
 }
 
+/* Slideshow image */
 #slideshowImage {
-    width: 100%;
-    height: auto;
-    object-fit: contain; /* Keeps the aspect ratio intact */
-    image-rendering: crisp-edges; /* Prevents blur */
+    width: 100%; /* Fully scales to fit the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures the image fits within the container */
+}
+
+/* Frame image */
+#frameImage {
+    position: absolute; /* Absolute positioning relative to the slideshow container */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjusts to center the element */
+    pointer-events: none; /* Allows interactions with underlying elements */
+    width: 103%; /* Adjust width relative to the container */
+    height: auto; /* Maintain aspect ratio */
 }
