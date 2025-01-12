@@ -2,7 +2,7 @@ import * as images from './imageArrays.js';
 
 let imagePath;
 
-function preloadImages(path, images) {
+const preloadImages = function(path, images) {
     images.forEach((image) => {
         const img = new Image();
         img.src = path + image;
