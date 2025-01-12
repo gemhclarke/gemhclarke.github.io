@@ -145,5 +145,6 @@ function cutscene1() {
 
 
 cutscene1();
+fadeIn('text', 500);
 
 
