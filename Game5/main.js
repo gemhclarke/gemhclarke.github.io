@@ -16,6 +16,7 @@ function Loader(callb) {
     preloadImages('miskImages/', images.misk);
     preloadImages('imageFiles/', images.machinesWalking);
     preloadImages('imageFiles2/', images.machinesWalking2);
+    callb();
 }
 
 
