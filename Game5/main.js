@@ -123,7 +123,7 @@ function cutscene1() {
                 startSlideshow();
             } else if (increment === 1) {
                 currentScene = images.machinesWalking2;
-                currentPath = 'ImageFiles2/';
+                currentPath = 'imageFiles2/';
                 startSlideshow();
                 fadeOutAndIn('text', 'Walking engines of glisening metal', 500);
             }
