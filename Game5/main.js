@@ -10,7 +10,9 @@ function preloadImages(path, images) {
 };
 
 
-
+preloadImages('miskImages/', images.misk);
+preloadImages('imageFiles/', images.machinesWalking);
+preloadImages('imageFiles2/', images.machinesWalking2);
 
 function Loader(callb) {
     preloadImages('miskImages/', images.misk);
