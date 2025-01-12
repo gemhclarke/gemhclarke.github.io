@@ -142,6 +142,6 @@ function cutscene1() {
 }
 
 
-Loader(cutscene1);
+cutscene1();
 
 
