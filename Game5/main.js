@@ -55,8 +55,8 @@ function fadeIn(id, duration = 1000, callback = null) {
 
     const fadeEffect = setInterval(() => {
         opacity += increment;
-        if (opacity >= 0.6) {
-            element.style.opacity = 0.6;
+        if (opacity >= 0.5) {
+            element.style.opacity = 0.5;
             clearInterval(fadeEffect);
             if (callback) callback(); // Run the callback after fade-in completes
         } else {
@@ -69,7 +69,7 @@ function fadeIn(id, duration = 1000, callback = null) {
 
 
 
-function fadeOutAndIn(elementId, newText, fadeDuration = 1000) {
+function fadeOutAndIn(elementId, newText, fadeDuration = 500) {
     const element = document.getElementById(elementId);
     // Fade out
     element.style.transition = `opacity ${fadeDuration / 1000}s`;
@@ -81,7 +81,7 @@ function fadeOutAndIn(elementId, newText, fadeDuration = 1000) {
         element.innerText = newText;
 
         // Fade in
-        element.style.opacity = 0.6;
+        element.style.opacity = 0.5;
     }, fadeDuration);
 }
 
