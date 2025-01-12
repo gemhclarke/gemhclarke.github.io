@@ -2,16 +2,24 @@ import * as images from './imageArrays.js';
 
 let imagePath;
 
-const preloadImages = function(path, images) {
+function preloadImages(path, images) {
     images.forEach((image) => {
         const img = new Image();
         img.src = path + image;
     });
 };
 
-preloadImages('miskImages/', images.misk);
-preloadImages('imageFiles/', images.machinesWalking);
-preloadImages('imageFiles2/', images.machinesWalking2);
+
+
+
+function Loader(callb) {
+    preloadImages('miskImages/', images.misk);
+    preloadImages('imageFiles/', images.machinesWalking);
+    preloadImages('imageFiles2/', images.machinesWalking2);
+}
+
+
+
 
 let currentIndex = 0;
 const delay = 150; // Fixed delay in milliseconds
@@ -121,6 +129,7 @@ function cutscene1() {
                 currentScene = images.machinesWalking;
                 currentPath = 'imageFiles/';
                 startSlideshow();
+                fadeIn('text', 500);
             } else if (increment === 1) {
                 currentScene = images.machinesWalking2;
                 currentPath = 'imageFiles2/';
@@ -131,7 +140,7 @@ function cutscene1() {
     });
 }
 
-cutscene1();
-fadeIn('text', 1000);
+
+Loader(cutscene1);
 
 
