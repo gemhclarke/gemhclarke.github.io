@@ -45,38 +45,93 @@ function displayImage() {
     }
 }
 
-let cutscene1 = {
-    scene1: {scene: images.machinesWalking, path: 'imageFiles/'},
-    scene2: {scene: images.machinesWalking2, path: 'imageFiles2/'},
+function fadeIn(id, duration = 1000, callback = null) {
+    const element = document.getElementById(id);
+    element.style.opacity = 0;
+    element.style.display = "block"; // Ensure the element is visible
+
+    const increment = 10 / duration; // Step based on duration
+    let opacity = 0;
+
+    const fadeEffect = setInterval(() => {
+        opacity += increment;
+        if (opacity >= 0.6) {
+            element.style.opacity = 0.6;
+            clearInterval(fadeEffect);
+            if (callback) callback(); // Run the callback after fade-in completes
+        } else {
+            element.style.opacity = opacity;
+        }
+    }, 10); // Update every 10ms
 }
 
 
-playCutscene = function(cutscene) {
-    currentScene = cutscene.scene1.scene;
-    currentPath = cutscene.scene1path;
-    startSlideshow();
+
+
+
+function fadeOutAndIn(elementId, newText, fadeDuration = 1000) {
+    const element = document.getElementById(elementId);
+    // Fade out
+    element.style.transition = `opacity ${fadeDuration / 1000}s`;
+    element.style.opacity = 0;
+
+    // Wait for the fade-out to complete
+    setTimeout(() => {
+        // Change the text after fade-out
+        element.innerText = newText;
+
+        // Fade in
+        element.style.opacity = 0.6;
+    }, fadeDuration);
 }
 
 
 
+
+
+
+
+
+
+
+
+
+function newTextChange(text) {
+    document.getElementById('text').textContent = text;
+}
+
+function changeText(newText) {
+    fadeOut('text', 1000, fadeIn('text', 1000, newTextChange(newText)));
+    // fadeIn('text', 1000);
+}
 
 // Initial setup when the page loads
 window.onload = function() {
     startSlideshow(); // Start the slideshow automatically upon loading
 };
 
-// Event listener for key presses
-document.addEventListener('keydown', (event) => {
-    if (event.key === '1') { // Check if the '1' key is pressed
-        currentScene = images.machinesWalking2; // Switch to new scene
-        currentPath = 'imageFiles2/';
-        console.log('Switched to Scene 2');
-        startSlideshow(); // Restart slideshow with the new scene
-    }
-    if (event.key === '2') { // Check if the '1' key is pressed
-        currentScene = images.machinesWalking; // Switch to new scene
-        currentPath = 'imageFiles/';
-        console.log('Switched to Scene 1');
-        startSlideshow(); // Restart slideshow with the new scene
-    }
-});
+
+
+function cutscene1() {
+    let increment = 0;
+    document.addEventListener('keydown', (event) => {
+        if (event.key === '1') {
+            increment += 1;
+            if (increment === 0) {
+                currentScene = images.machinesWalking;
+                currentPath = 'imageFiles/';
+                startSlideshow();
+            } else if (increment === 1) {
+                currentScene = images.machinesWalking2;
+                currentPath = 'ImageFiles2/';
+                startSlideshow();
+                fadeOutAndIn('text', 'Walking engines of glisening metal', 500);
+            }
+        }
+    });
+}
+
+cutscene1();
+fadeIn('text', 1000);
+
+
