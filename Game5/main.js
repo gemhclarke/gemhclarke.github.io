@@ -2,16 +2,53 @@ import * as images from './imageArrays.js';
 
 let imagePath;
 
+// const preloadImages = function(path, images) {
+//     images.forEach((image) => {
+//         const img = new Image();
+//         img.src = path + image;
+//     });
+// };
+
+
+
 const preloadImages = function(path, images) {
-    images.forEach((image) => {
-        const img = new Image();
-        img.src = path + image;
+    return new Promise((resolve) => {
+        let loadedCount = 0;
+
+        images.forEach((image) => {
+            const img = new Image();
+            img.src = path + image;
+
+            // Increment the count when the image loads
+            img.onload = () => {
+                loadedCount++;
+                if (loadedCount === images.length) {
+                    resolve(); // Resolve the Promise when all images are loaded
+                }
+            };
+        });
+
+        // Edge case: Resolve immediately if images array is empty
+        if (images.length === 0) {
+            resolve();
+        }
     });
 };
 
-preloadImages('miskImages/', images.misk);
-preloadImages('imageFiles/', images.machinesWalking);
-preloadImages('imageFiles2/', images.machinesWalking2);
+function Loader(callb) {
+    const promises = [
+        preloadImages('miskImages/', images.misk),
+        preloadImages('imageFiles/', images.machinesWalking),
+        preloadImages('imageFiles2/', images.machinesWalking2),
+    ];
+    // Wait for all image preloading to complete
+    Promise.all(promises).then(() => {
+        if (typeof callb === 'function') {
+            callb(); // Call the callback function
+        }
+    });
+}
+
 
 let currentIndex = 0;
 const delay = 150; // Fixed delay in milliseconds
@@ -45,24 +82,11 @@ function displayImage() {
     }
 }
 
-function fadeIn(id, duration = 1000, callback = null) {
+function fadeIn(id, fadeDuration = 500) {
     const element = document.getElementById(id);
     element.style.opacity = 0;
-    element.style.display = "block"; // Ensure the element is visible
-
-    const increment = 10 / duration; // Step based on duration
-    let opacity = 0;
-
-    const fadeEffect = setInterval(() => {
-        opacity += increment;
-        if (opacity >= 0.5) {
-            element.style.opacity = 0.5;
-            clearInterval(fadeEffect);
-            if (callback) callback(); // Run the callback after fade-in completes
-        } else {
-            element.style.opacity = opacity;
-        }
-    }, 10); // Update every 10ms
+    element.style.transition = `opacity ${fadeDuration / 1000}s`;
+    element.style.opacity = 0.5;
 }
 
 
@@ -88,48 +112,30 @@ function fadeOutAndIn(elementId, newText, fadeDuration = 500) {
 
 
 
-
-
-
-
-
-
-
-
-function newTextChange(text) {
-    document.getElementById('text').textContent = text;
-}
-
-function changeText(newText) {
-    fadeOut('text', 1000, fadeIn('text', 1000, newTextChange(newText)));
-    // fadeIn('text', 1000);
-}
-
-// Initial setup when the page loads
-window.onload = function() {
-    startSlideshow(); // Start the slideshow automatically upon loading
-};
-
-
-
 function cutscene1() {
     let increment = 0;
-    document.addEventListener('keydown', (event) => {
+
+   // Inital scene 
+    currentScene = images.machinesWalking;
+    currentPath = 'imageFiles/';
+    startSlideshow();
+    fadeIn('text', 500);
+
+    document.addEventListener('keydown', (event) => {   
         if (event.key === '1') {
+
             increment += 1;
-            if (increment === 0) {
-                currentScene = images.machinesWalking;
-                currentPath = 'imageFiles/';
-                startSlideshow();
-            } else if (increment === 1) {
+
+            if (increment === 1) {
                 currentScene = images.machinesWalking2;
                 currentPath = 'imageFiles2/';
                 startSlideshow();
                 fadeOutAndIn('text', 'Walking engines of glisening metal', 500);
+            } else if (increment === 2) {
+                fadeOutAndIn('text', 'They killed indiscriminatly, leaving nothing behind...', 500);
             }
         }
     });
 }
 
-cutscene1();
-fadeIn('text', 1000);
+Loader(cutscene1)

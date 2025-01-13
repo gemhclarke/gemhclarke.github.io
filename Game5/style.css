@@ -46,7 +46,7 @@ body {
 
 /* Text overlay */
 #text {
-    display: none;
+    display: block;
     position: absolute; /* Absolute positioning relative to the slideshow container */
     top: 80%; /* Center vertically */
     left: 50%; /* Center horizontally */
@@ -56,5 +56,5 @@ body {
     font-weight: bold; /* Bold text */
     z-index: 100;
     background-color: black;
-    opacity: 0.5;
+    opacity: 0;
 }
