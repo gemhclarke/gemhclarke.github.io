@@ -84,9 +84,12 @@ function displayImage() {
 
 function fadeIn(id, fadeDuration = 500) {
     const element = document.getElementById(id);
+
+    setTimeout(() => {
     element.style.opacity = 0;
     element.style.transition = `opacity ${fadeDuration / 1000}s`;
     element.style.opacity = 0.5;
+    }, fadeDuration);
 }
 
 
