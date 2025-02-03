@@ -41,6 +41,11 @@ function Loader(callb) {
         preloadImages('miskImages/', images.misk),
         preloadImages('imageFiles/', images.machinesWalking),
         preloadImages('imageFiles2/', images.machinesWalking2),
+        preloadImages('SpaceScene2/', images.spaceScene2),
+        preloadImages('EarthScene/', images.earthScene),
+        preloadImages('SpaceScene/', images.spaceScene),
+        preloadImages('WalkingGround/', images.walkingGround),
+        preloadImages('TownScene/', images.townScene),
     ];
     // Wait for all image preloading to complete
     Promise.all(promises).then(() => {
@@ -135,7 +140,7 @@ function cutscene1() {
     const text = document.getElementById('text');
 
     // Inital scene 
-    currentScene = images.machinesWalking;
+    currentScene = images.spaceScene;
     currentPath = 'SpaceScene/';
     text.innerText = 'Space is vast and ever expanding.';
     startSlideshow();
@@ -151,15 +156,17 @@ function cutscene1() {
 
     function check() {
         if (increment === 1) {
-            currentScene = images.townScene;
+            currentScene = images.spaceScene2;
             currentPath = 'spaceScene2/';
             fadeOutAndIn('text', 'The planets and stars grow evermore distant as the universe expands', 700);
         } 
         else if (increment === 2) {
+            currentScene = images.spaceScene2;
             currentPath = 'SpaceScene2/';
             fadeOutAndIn('text', 'It is no suprise then, that visitors from the void came to us.', 700);
         }
         else if (increment === 3) {
+            currentScene = images.earthScene;
             currentPath = 'EarthScene/';
             fadeOutAndIn('text', 'Our planet was young and full of life. A perfect prize for the invaders.', 700);
         }
@@ -172,11 +179,12 @@ function cutscene1() {
             fadeOutAndIn('text', 'They killed indiscriminatly, leaving nothing behind...', 700);
         } 
         else if (increment === 6) {
+            currentScene = images.machinesWalking2;
             currentPath = 'imageFiles2/';
             fadeOutAndIn('text', 'I thought that was the worst thing I would see.', 700);
         } 
         else if (increment === 7) {
-            currentScene = images.machinesWalking2;
+            currentScene = images.walkingGround;
             currentPath = 'WalkingGround/';
             fadeOutAndIn('text', 'Benieth their feet lay the wreckage of humanity. All our progress and knowlege undone in a matter of days.', 700);
         }
@@ -187,7 +195,7 @@ function cutscene1() {
         }
         else {
             increment = 0;
-            currentScene = images.machinesWalking;
+            currentScene = images.spaceScene;
             currentPath = 'SpaceScene/';
             text.innerText = 'Space is vast and ever expanding.';
             fadeIn('text', 700, textOpacity);

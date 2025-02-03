@@ -228,6 +228,57 @@ export const townScene = [
     '0014.png',
 ];
 
+export const spaceScene = [
+    '0001.png',
+    '0002.png',
+    '0003.png',
+    '0004.png',
+    '0005.png',
+    '0006.png',
+    '0007.png',
+    '0008.png',
+    '0009.png',
+    '0010.png',
+    '0011.png',
+    '0012.png',
+    '0013.png',
+    '0014.png',
+];
+
+export const spaceScene2 = [
+    '0001.png',
+    '0002.png',
+    '0003.png',
+    '0004.png',
+    '0005.png',
+    '0006.png',
+    '0007.png',
+    '0008.png',
+    '0009.png',
+    '0010.png',
+    '0011.png',
+    '0012.png',
+    '0013.png',
+    '0014.png',
+];
+
+export const earthScene = [
+    '0001.png',
+    '0002.png',
+    '0003.png',
+    '0004.png',
+    '0005.png',
+    '0006.png',
+    '0007.png',
+    '0008.png',
+    '0009.png',
+    '0010.png',
+    '0011.png',
+    '0012.png',
+    '0013.png',
+    '0014.png',
+];
+
 export const misk = [
     'Frame.png',
     'Background.png',
