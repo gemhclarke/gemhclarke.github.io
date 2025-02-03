@@ -27,7 +27,10 @@ const preloadImages = function(path, images) {
                     resolve(); // Resolve the Promise when all images are loaded
                 }
             };
+            console.log('loaded ' + image +' from ' + path);
         });
+
+        console.log(' ');
 
         // Edge case: Resolve immediately if images array is empty
         if (images.length === 0) {
@@ -49,6 +52,7 @@ function Loader(callb) {
     ];
     // Wait for all image preloading to complete
     Promise.all(promises).then(() => {
+        console.log('All images loaded');
         if (typeof callb === 'function') {
             callb(); // Call the callback function
         }
@@ -157,7 +161,7 @@ function cutscene1() {
     function check() {
         if (increment === 1) {
             currentScene = images.spaceScene2;
-            currentPath = 'spaceScene2/';
+            currentPath = 'SpaceScene2/';
             fadeOutAndIn('text', 'The planets and stars grow evermore distant as the universe expands', 700);
         } 
         else if (increment === 2) {
